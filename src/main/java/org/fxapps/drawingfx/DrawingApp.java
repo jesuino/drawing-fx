@@ -13,6 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -25,16 +26,16 @@ import javafx.util.Duration;
  */
 public abstract class DrawingApp extends Application {
 
-	public int frames = 10;
-	public String title = "My App";
-
 	public static int width = 600;
 	public static int height = 400;
+	public int frames = 10;
+	public String title = "My App";
+	public Color background = Color.LIGHTGRAY;
 
 	public static Random random = new Random();
 
-	Canvas canvas = new Canvas();
-	GraphicsContext ctx = canvas.getGraphicsContext2D();
+	public Canvas canvas = new Canvas();
+	public GraphicsContext ctx = canvas.getGraphicsContext2D();
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -61,6 +62,8 @@ public abstract class DrawingApp extends Application {
 		Timeline timeline = new Timeline(frame);
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
+		ctx.setFill(background);
+		ctx.fillRect(0, 0, width, height);
 	}
 
 	// classical setup and draw methods from Processing

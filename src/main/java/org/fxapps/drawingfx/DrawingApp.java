@@ -66,10 +66,10 @@ public abstract class DrawingApp extends Application {
 
 	// classical setup and draw methods from Processing
 
-	void setup() {
+	public void setup() {
 	}
 
-	void draw() {
+	public void draw() {
 	}
 
 	// event listeners - if user override the method with event, the method

@@ -18,7 +18,7 @@ public class BouncingBalls extends DrawingApp {
 	}
 	
 	@Override
-	void setup() {
+	public void setup() {
 		title = "Bouncing Ball Example";
 		width = 800;
 		height = 600;
@@ -28,7 +28,7 @@ public class BouncingBalls extends DrawingApp {
 	}
 
 	@Override
-	void draw() {
+	public void draw() {
 		ctx.setFill(Color.LIGHTGRAY);
 		ctx.fillRect(0, 0, width, height);
 		for (Ball ball : balls) {

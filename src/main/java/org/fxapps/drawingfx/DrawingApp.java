@@ -1,7 +1,6 @@
 package org.fxapps.drawingfx;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 
 import java.util.Random;
 

@@ -28,9 +28,12 @@ public abstract class DrawingApp extends Application {
 
 	public static int width = 600;
 	public static int height = 400;
+
 	public int frames = 10;
 	public String title = "My App";
 	public Color background = Color.LIGHTGRAY;
+	public double mouseY;
+	public double mouseX;
 
 	public static Random random = new Random();
 
@@ -45,7 +48,7 @@ public abstract class DrawingApp extends Application {
 
 		canvas.setOnMouseClicked(this::mouseCliked);
 		canvas.setOnMouseDragged(this::mouseDragged);
-		canvas.setOnMouseMoved(this::mouseMoved);
+		canvas.setOnMouseMoved(this::internalMouseMoved);
 		canvas.setOnMouseEntered(this::mouseEntered);
 		canvas.setOnMouseExited(this::mouseExited);
 		canvas.setOnKeyPressed(this::keyPressed);
@@ -82,6 +85,12 @@ public abstract class DrawingApp extends Application {
 
 	public void mouseDragged(MouseEvent e) {
 		mouseDragged();
+	}
+	
+	private void internalMouseMoved(MouseEvent e) {
+		this.mouseX = abs(canvas.getLayoutX() - e.getSceneX());
+		this.mouseY = abs(canvas.getLayoutY() - e.getSceneY());
+		mouseMoved(e);
 	}
 
 	public void mouseMoved(MouseEvent e) {

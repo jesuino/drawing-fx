@@ -53,10 +53,10 @@ public class BouncingBalls extends DrawingApp {
 		void update() {
 			this.x+= speedX;
 			this.y+= speedY;
-			if(x < 0 || x > width) {
+			if(x < 0 || x > width - this.r) {
 				speedX *= -1;
 			}
-			if(y < 0 || y > height) {
+			if(y < 0 || y > height -this.r) {
 				speedY *= -1;
 			}
 		}

@@ -33,6 +33,7 @@ public abstract class DrawingApp extends Application {
 	public static int height = 400;
 
 	public int frames = 10;
+	public boolean noFrame = false;
 	public String title = "My App";
 	public Color background = Color.LIGHTGRAY;
 	public double mouseY;
@@ -68,14 +69,20 @@ public abstract class DrawingApp extends Application {
 		stage.setTitle(title);
 		stage.setScene(scene);
 		stage.show();
-
-		canvas.requestFocus();
-		KeyFrame frame = new KeyFrame(Duration.millis(1000 / frames), e -> draw());
-		Timeline timeline = new Timeline(frame);
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
 		ctx.setFill(background);
 		ctx.fillRect(0, 0, width, height);
+		
+		
+		canvas.requestFocus();
+		if (noFrame) {
+			draw();
+		} else {
+			KeyFrame frame = new KeyFrame(Duration.millis(1000 / frames), e -> draw());
+			Timeline timeline = new Timeline(frame);
+			timeline.setCycleCount(Timeline.INDEFINITE);
+			timeline.play();
+		}
+
 	}
 
 	// classical setup and draw methods from Processing

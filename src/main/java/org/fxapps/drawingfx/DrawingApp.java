@@ -179,4 +179,8 @@ public abstract class DrawingApp extends Application {
 		return sqrt(pow(x2 - x, 2) + pow(y2 - y, 2));
 	}
 	
+	public double map(double value, double start1, double stop1, double start2, double stop2) {
+		return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+	}
+	
 }
